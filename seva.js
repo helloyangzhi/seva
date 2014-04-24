@@ -5,11 +5,17 @@
  */
 ;(function(w,u){
 
+    //判断浏览器是遵循W3C标准,或者为IE9+浏览器
     var W3C = w.document.dispatchEvent ? true: false,
         readyList = [];
+
     //seva framework core model
-    var seva = function(w,u){
+    var seva = function(){
         return {
+            //selector
+            run:function(selector){
+
+            },
             ready:function(fn){
                 if(readyList){
                     readyList.push(fn);
@@ -23,12 +29,16 @@
             }:function(el,type,fn){
                 el.attachEvent && el.attachEvent("on" + type,fn);
                 return fn;
+            },
+            extend:function(){
+                console.log('extend');
             }
         };
     }(); 
 
-    var readyFn,ready = window.addEventListener ? "DOMContentLoaded" : "readystatechange";
+    var readyFn,ready = W3C ? "DOMContentLoaded" : "readystatechange";
 
+    //firefox低版本不支持readyState,所以自定义一个readyState变量
     if(!document.readyState){
         var readyState = DOC.readyState = "loading";
     }
@@ -55,6 +65,12 @@
         });
     }
 
+    /*isFunction*/
+    /*isArray*/
+    /*isObject*/
+    /*isNaN*/
+
+    //挂载到window下
     window.sv = window.seva =  seva;
 })(window,undefined);
 
