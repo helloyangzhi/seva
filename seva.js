@@ -37,7 +37,6 @@
                 return fn;
             },
             extend:function(){
-                console.log('extend');
             },
             isFunction:function(obj){
                return seva.type(obj) === 'function';
@@ -52,6 +51,10 @@
                     return obj == null ?
                         String( obj ) :
                         class2type[ toString.call(obj) ] || "object";
+            },
+            noop: function(){},
+            require: function(){
+                //需要一个require的方法
             }
         };
     }(); 
@@ -68,7 +71,7 @@
             fn();
         }
         readyList = null;
-        //fireReady = $.noop; //隋性函数，防止IE9二次调用_checkDeps
+        fireReady = seva.noop; //隋性函数，防止IE9二次调用_checkDeps
     }
 
     //如果是在domReady之后再加载的方法,那么立刻执行.
