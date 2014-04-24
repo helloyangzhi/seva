@@ -7,14 +7,21 @@
     //判断浏览器是遵循W3C标准,或者为IE9+浏览器
     var W3C = w.document.dispatchEvent ? true: false,
         readyList = [];
+        class2type = {
+            "[object Boolean]" : 'boolean',
+            "[object Number]" : 'number',
+            "[object String]" : 'string',
+            "[object Function]" : 'function',
+            "[object Array]" : 'array',
+            "[object Date]" : 'date',
+            "[object RegExp]" : 'RegExp',
+            "[object Object]" : 'object'
+        },
+        toString = Object.prototype.toString;
 
     //seva framework core model
     var seva = function(){
         return {
-            //selector
-            run:function(selector){
-
-            },
             ready:function(fn){
                 if(readyList){
                     readyList.push(fn);
@@ -31,6 +38,20 @@
             },
             extend:function(){
                 console.log('extend');
+            },
+            isFunction:function(obj){
+               return seva.type(obj) === 'function';
+            },
+            isArray: Array.isArray || function(obj){
+               return seva.type(obj) === 'array';
+            },
+            isNaN:function(obj){
+                return obj !== null && obj !== obj;
+            },
+            type: function(obj) {
+                    return obj == null ?
+                        String( obj ) :
+                        class2type[ toString.call(obj) ] || "object";
             }
         };
     }(); 
@@ -63,11 +84,6 @@
             }
         });
     }
-
-    /*isFunction*/
-    /*isArray*/
-    /*isObject*/
-    /*isNaN*/
 
     //挂载到window下
     window.sv = window.seva =  seva;
