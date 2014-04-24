@@ -1,6 +1,5 @@
 /*
  *  seva.js
- *  author  yangzhi<helloyangzhi@foxmail.com>
  *  seva framework
  */
 ;(function(w,u){
