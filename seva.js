@@ -55,6 +55,7 @@
             noop: function(){},
             require: function(){
                 //需要一个require的方法
+
             }
         };
     }(); 
