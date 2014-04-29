@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>load Js</title>
+	<script type="text/javascript" src="myload.js"></script>
+	<!--<script type="text/javascript" src="require.js"></script>-->
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	/*window.onload = function(){
+		//console.log(dom.loaded("query")) ;
+		dom.require("query",function(){//☆☆☆这里不会使用动态标签来加载它，因为它已调用了loaded方法，它只会顺势执行回调函数
+		    arguments.callee._attached = true;
+		    alert("query加载成功")
+		});
+	}*/
+	window.onload = function(){
+		//console.log(dom.loaded("query")) ;
+		dom.require(["string",'number'],function(){//☆☆☆这里不会使用动态标签来加载它，因为它已调用了loaded方法，它只会顺势执行回调函数
+		    console.log("加载factory成功");
+		});
+	}
+	
+</script>
+</html>
