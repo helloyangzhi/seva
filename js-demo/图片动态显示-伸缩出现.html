@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>  
+	<title>Document</title>
+</head>
+<body>
+	<div style="position:relative;">
+		<div style="width:100px;height:100px;border:1px solid red;cursor: pointer;" id="show"></div>
+		<div id="sub" style="width:400px;height:400px;border:1px solid blue;position:absolute;display:none;top:0px;left:100px;background:red;"></div>
+	</div>
+	<div style="position:relative;margin-left:500px;width:100px;">
+		<div style="width:100px;height:100px;border:1px solid red;cursor: pointer;" id="show2"></div>
+		<div id="sub2" style="width:400px;height:400px;border:1px solid blue;position:absolute;display:none;top:0px;right:100px;background:red;"></div>
+	</div>
+	<script type="text/javascript">
+		$("#show").hover(function(){
+			$("#sub").show(800);
+		},function(){
+			$("#sub").hide();
+		});
+
+		$("#show2").hover(function(){
+			$("#sub2").show(800);
+		},function(){
+			$("#sub2").hide();
+		});
+	</script>
+</body>
+</html>

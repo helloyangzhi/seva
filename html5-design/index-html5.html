@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html5</title>
+	<style type="text/css">
+	html,body,div,span,p,h1,h2,h3,h4,h5,h6,input,ul,li{padding:0px;margin:0px;}
+	body{padding:20px;}
+	/*
+	doy you konw my gad css3 font family ?
+
+	@font-face {
+		font-family: 'BebasNeueRegular';
+		src: url('BebasNeue-webfont.eot');
+		src: url('BebasNeue-webfont.eot?#iefix') format('embeddedopentype'),
+		url('BebasNeue-webfont.woff') format('woff'),
+		url('BebasNeue-webfont.ttf') format('truetype'),
+		url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+	*/
+	li{list-style-type: none;}
+	#main {
+		-webkit-column-width: 500px;
+	}
+	section[type^='sec']{
+		border:1px solid red;
+		width:100px;
+		height:100px;
+	}
+	section[type^='sec']{
+		border:1px solid red;
+		width:100px;
+		height:100px;
+	}
+	section[type$='sec']{
+		border:1px solid blue;
+		width:100px;
+		height:100px;
+	}
+	section[type*='show']{
+		border:1px solid green;
+		width:100px;
+		height:100px;
+	}
+	.navigation ul li{
+		list-style-type: none;
+		width: 50px;
+		height: 100px;
+		border:1px solid #999;
+	}
+	.navigation ul li:first-child{
+		border:1px solid red;
+		width:50px;
+		height: 100px;
+	}
+	.navigation ul li:last-child{
+		border:1px solid red;
+		width:50px;
+		height: 100px;
+	}
+	.navigation ul li:nth-child(even){
+		border:1px solid red;
+		width:50px;
+		height: 100px;
+		background: #ccc;
+	}
+	a:not(.not-a){
+		font-size: 20px;
+		color:red;
+	}
+
+	.word{
+		width: 300px;
+		word-wrap: break-word;
+	}
+
+	.word p:first-line{
+		color:red;
+	}
+	.css3-back{
+		background: rgba(0, 0, 0, 0.3);
+		color:red;	
+	}
+	.css3-opacity{
+		opacity: 0.3;
+		background: rgb(0, 0, 0);
+		color:red;	
+	}
+
+	.css3-box-shadow{
+		border:10px solid yellow;
+		-webkit-box-shadow:10px 10px 10px #000,-10px -10px 10px #FF3535,10px -10px 10px green,-10px 10px 10px blue;
+		height: 50px;
+		width: 50px;
+		margin-bottom: 50px;
+	}
+
+	.css3-box-shadow2{
+		border:10px solid yellow;
+		-webkit-box-shadow:inset 10px 0px 10px #000,inset -10px 0px 10px red,inset 0px 10px 10px green,inset 0px -10px 10px blue;
+		height: 200px;
+		width: 200px;
+		margin-bottom: 50px;
+
+	}
+
+	.css3-text-shadow{
+		text-shadow:5px 1px 1px #2C3472,-5px -1px 1px #FF3535;
+		color:blue;
+		border:10px solid red;
+		width: 100px;
+		height:50px;
+		margin-bottom: 50px;
+	}
+
+	.linear-gradient{
+		background: linear-gradient(90deg, #BB4141 0%, #2D6932 50%, #977676 100%);
+		width: 200px;
+		height: 50px;
+		margin-bottom: 50px;
+		border:10px solid red;
+	}
+	.gradient2{
+		width: 200px;
+		height: 50px;
+		margin-bottom: 50px;
+		border:10px solid red;
+		background: radial-gradient(25px 25px, ellipse cover, #ffffff 72%, #dddddd 100%);
+	}
+	.example{width:300px;}
+	.example a{
+		text-decoration: none;
+		font: 15px microsoft yahei;
+		background-color: #b01c20;
+		width: 100px;
+		height: 50px;
+		margin-bottom: 100px;
+		border-radius: 8px;
+		color: white;
+		padding: 30px;
+		float: left;
+		background: linear-gradient(90deg, #b01c20 0%, #f15c60 100%);
+		margin-top: 30px;
+		box-shadow: 5px 5px 5px hsla(0, 0%, 26.6667%, 0.8);
+		text-shadow: 0px 1px black;
+		border: 1px solid #bfbfbf;
+		transition: all 1s ease 0s;
+	}
+	
+	.example a:hover {
+		border: 1px solid #000000;
+		color: #000000;
+		text-shadow: 0px 1px white;
+	}
+
+	.example2 a{
+		text-decoration: none;
+		font: 15px microsoft yahei;
+		background-color: #b01c20;
+		width: 100px;
+		height: 50px;
+		margin-bottom: 100px;
+		border-radius: 8px;
+		color: white;
+		padding: 30px;
+		float: left;
+		background: linear-gradient(90deg, #b01c20 0%, #f15c60 100%);
+		margin-top: 30px;
+		box-shadow: 5px 5px 5px hsla(0, 0%, 26.6667%, 0.8);
+		text-shadow: 0px 1px black;
+		border: 1px solid #bfbfbf;
+		transition-property: border, color, text-shadow;
+		transition-duration: 2s, 3s, 8s;
+	}
+	.example2 a:hover {
+		border: 1px solid #000000;
+		color: #000000;
+		text-shadow: 0px 1px white;
+	}
+	.transform-scale{margin-bottom:50px}
+
+	.transform-scale ul li a:hover{
+		height: 42px;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: black;
+		text-shadow: 0 1px 0 hsla(0, 0%, 100%, 1.0);
+		font: 1.875em/42px 'microsoft yahei';
+		display: block;
+		
+	}
+	.transform-translate{
+		height: 300px;
+	}
+	.transform-translate ul li a:hover{
+		height: 50px;
+		width: 200px;
+		-webkit-transform: translate(10px, 10px);
+		display: block;
+	}
+	.transform-rotate{margin-bottom: 50px;}
+	.transform-rotate ul li a:hover{
+		width: 200px;
+		-webkit-transform: rotate(3600deg);
+		transition: all 5s ease 0s;
+		display: block;
+	}
+	.transform-skew{margin-bottom: 50px;}
+	.transform-skew ul li a:hover{
+		width: 200px;
+		-webkit-transform: skew(10deg,50deg);
+		transition: all 5s ease 0s;
+		display: block;
+	}
+	.transform-origin{
+		margin-bottom: 50px;
+	}
+	.transform-origin ul li a:hover{
+		width: 200px;
+		-webkit-transform: rotate(3600deg);
+		-webkit-transform-origin: 20% 20%;
+		transition: all 5s ease 0s;
+		display: block;
+	}
+
+	@-webkit-keyframes warning {
+		from {
+		text-shadow: 0px 0px 4px #000000;
+		}
+		50% {
+		text-shadow: 0 0 40px #000000;
+		}
+		to {
+		text-shadow: 0 0 4px #000000;
+		}
+	}
+
+	@-webkit-keyframes swing {
+		from {
+			-webkit-transform: rotate(3deg);
+		}
+		20% {
+			-webkit-transform: rotate(7deg);
+		}
+		60% {
+			-webkit-transform: rotate(10deg);
+		}
+		80% {
+			-webkit-transform: rotate(7deg);
+		}
+		to {
+			-webkit-transform: rotate(3deg);
+		}
+	}
+
+	.back{margin-bottom: 50px;}
+	.back a:hover{
+		font-size: 4em;
+		color: #f2050b;
+		display: block;
+		-webkit-animation:warning 1.5s infinite ease-in
+	}
+	.back2 a:hover{
+		font-size: 4em;
+		color: #f2050b;
+		display: block;
+		-webkit-animation:swing 1.5s infinite ease-in
+	}
+	
+		</style>
+</head>
+<body>
+	<div class="css3-back">字体颜色</div>
+
+	<div class="css3-opacity">opacity字体颜色</div>
+	<section class="word">
+		<p>first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red first line color red </p>
+	</section>
+	<nav></nav
+	<article>
+		<a href="#" class="not-a">test</a>
+		<a href="#">test</a>
+		<a href="#">test</a>
+		<a href="#">test</a>
+		<a href="#">test</a>
+		<a href="#">test</a>
+	</article>
+	<aside></aside>
+	<hgroup></hgroup>
+	<header>
+		<nav class="navigation">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li class="not-info"></li>
+			</ul>
+		</nav>	
+	</header>
+	<footer></footer>
+	<address></address>
+	<hgroup>
+		<h1>Ben's blog</h1>
+		<h2>All about what I do</h2>
+	</hgroup>
+	<article>
+		<header>
+			<hgroup>
+				<h1>A post about something</h1>
+				<h2>Trust me this is a great read</h2>
+				<h3>No, not really</h3>
+				<p>See. Told you.</p>
+			</hgroup>
+		</header>
+	</article>
+
+	<section type="sec-info"></section>
+	<section type="sec-detail"></section>
+	<section type="detail-sec"></section>
+	<section type="detail show content"></section>
+
+
+	<div id="main" role="main">
+		<p>lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.</p>
+		<p>lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.lloremipsimLoremipsum dolor sit amet, consectetur.</p>
+	</div>
+
+	<div class="css3-box-shadow">box-shadow
+	</div>
+
+	<div class="css3-box-shadow2">inset box-shadow
+	</div>
+
+	<div class="css3-text-shadow">多重text-shadow效果
+	</div>
+
+
+	<div class="linear-gradient">css3线性渐变</div>
+
+	<div class="gradient2">css3径向渐变</div>
+
+	<div class="example">
+		<p>here is an example</p><a href="#">example example </a>
+		<div style="clear:both;"></div>
+	</div>
+
+	<div class="example2">
+		<p>here is an example</p><a href="#">example example </a>
+		<div style="clear:both;"></div>
+	</div>
+
+	<nav class="transform-scale">
+		<ul>
+			<li><a href="#">transform-scale</a></li>
+			<li><a href="#">transform-scale</a></li>
+		</ul>
+	</nav>
+	<nav class="transform-translate">
+		<ul>
+			<li><a href="#">transform-translate</a></li>
+			<li><a href="#">transform-translate</a></li>
+			<li><a href="#">transform-translate</a></li>
+			<li><a href="#">transform-translate</a></li>
+		</ul>
+	</nav>
+	<nav class="transform-rotate">
+		<ul>
+			<li><a href="#">transform-rotate</a></li>
+			<li><a href="#">transform-rotate</a></li>
+			<li><a href="#">transform-rotate</a></li>
+			<li><a href="#">transform-rotate</a></li>
+		</ul>
+	</nav>
+	<nav class="transform-skew">
+		<ul>
+			<li><a href="#">transform-skew</a></li>
+			<li><a href="#">transform-skew</a></li>
+			<li><a href="#">transform-skew</a></li>
+			<li><a href="#">transform-skew</a></li>
+		</ul>
+	</nav>
+
+	<nav class="transform-origin">
+		<ul>
+			<li><a href="#">transform-origin</a></li>
+			<li><a href="#">transform-origin</a></li>
+			<li><a href="#">transform-origin</a></li>
+			<li><a href="#">transform-origin</a></li>
+		</ul>
+	</nav>
+
+	<div class="back">
+		<h3><a href="#">动画循环</a></h3>
+	</div>
+
+	<div class="back2">
+		<h3><a href="#">动画循环</a></h3>
+	</div>
+
+
+</body>
+</html>

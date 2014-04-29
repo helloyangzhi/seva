@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>    	
+</head>
+<body>
+	<iframe src="subsub.html" frameborder="0" width="700" id="sub-id" ></iframe>
+	<script type="text/javascript">
+	/*
+		$(function(){ 
+	      $("#sub-id").load(function(){ 
+	      	$(this).height(0); //用于每次刷新时控制IFRAME高度初始化 
+	      	var height = $(this).contents().height() + 10; 
+	      	$(this).height(height); 
+	      	var iframe = $(window.parent.document).find("#iframe"),
+		  		thisheight = $(this).height()+30;//获取页面高度
+		  	iframe.height(thisheight);
+	    }); 
+	  });*/
+		window.onload= SetIframeSize("iframe","sub-id");
+		function SetIframeSize(iParentFrameName,iframeName){
+	         var iframe = document.getElementById(iframeName);
+	         try
+	          {
+	             var bHeight = iframe.contentWindow.document.body.scrollHeight;
+	             var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+	               //据说这两个高度可能不一样
+	              var height = Math.max(bHeight, dHeight);
+	              iframe.height =    height;
+	              //更新父框架高度
+	              SetIframeSize2(iParentFrameName)
+	           }catch (ex){
+
+	           }
+	      }
+    	//iframeName:框架ID
+		function SetIframeSize2(iframeName)
+		{
+		    var iframe = window.parent.parent.document.getElementById(iframeName);
+		    	try{
+		           var bHeight = iframe.contentWindow.document.body.scrollHeight;
+		           var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+		           var height = Math.max(bHeight, dHeight);
+		           iframe.height =    height;
+		        }catch (ex){}
+		}
+	</script>    	
+</body>
+</html>

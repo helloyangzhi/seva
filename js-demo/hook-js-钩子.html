@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var hooks = {
+		queue: [],
+		addAction: function(hook, func) {
+			hooks.queue[hook] || (hooks.queue[hook] = new Array());
+			if(typeof func == 'function') {
+				hooks.queue[hook].push(func);
+			} else if(typeof func == 'string') {
+				hooks.queue[hook].push(window[func]);
+			}
+		},
+		doAction: function(hook) {
+			var parameters = Array.prototype.slice.call(arguments, 1);
+			var functions = hooks.queue[hook];
+			if(functions == null) {
+				return true;
+			}
+			var flag = true;
+			for(var i=0; i < functions.length; i++) {
+				var result = hooks.call_user_func_array(functions[i], parameters);
+				if(result != null) flag = flag && result;
+			}
+			return flag;
+		},
+		call_user_func_array: function(cb, parameters) {
+			if (typeof cb === 'string') {
+				func = (typeof hooks[cb] === 'function') ? hooks[cb] : func = (new Function(null, 'return ' + cb))();
+			} else if (cb instanceof Array) {
+				func = ( typeof cb[0] == 'string' ) ? eval(cb[0]+"['"+cb[1]+"']") : func = cb[0][cb[1]];
+			} else if (typeof cb === 'function') {
+				func = cb;
+			}
+			if (typeof func != 'function') {
+				throw new Error(func + ' is not a valid function');
+			}
+			if(typeof parameters == 'undefined') {
+				var tmp_ary = [];
+				var parameters = Array.prototype.slice.call(tmp_ary, 1);  
+			}
+			return (typeof cb[0] === 'string') ? func.apply(eval(cb[0]), parameters) :
+				( typeof cb[0] !== 'object' ) ? func.apply(null, parameters) : func.apply(cb[0], parameters);
+		}
+	}
+</script>
+</html>

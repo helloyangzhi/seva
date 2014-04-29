@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>absolute test</title>
+	<style type="text/css">
+		.absolute-id{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			height: 500px;
+			width: 500px;
+			background: red;
+		}
+		.relative-id{
+			height: 800px;
+			width: 800px;
+			position: relative;
+			
+		}
+		.box{height: 200px;width: 200px;z-index:102;}
+	</style>
+</head>
+<body>
+	<div class ="relative-id">
+		<div class="absolute-id">
+				<img src="图片库-1.jpg" height="200" width="200"/>
+		</div>
+		<div class="box">
+			hello word;
+			<div style="position:relative;">
+				<img src="col3-bg.jpg" height="200" width="200"/>
+			</div>
+		</div>
+	</div>
+	<!--
+		<div style="height: 100%; width:100%; position:absolute; top:0px; left:0px;background:red;">
+	    	<img src="111r.jpg" width="800"/>
+	    </div>
+	    <div style="width: 800px;height: 800px;overflow: auto;margin: 0px auto;position: absolute;left: 500px;top: 50px;padding: 10px;background: #fff;" id="show-info-box-id">
+	    	asfdasdf
+		</div>
+	-->
+</body>
+</html>

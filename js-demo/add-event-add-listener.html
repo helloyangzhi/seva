@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="call me" id="call-id" alt="1"/>
+</body>
+<script type="text/javascript">
+
+	var E = {
+
+		on:function(el,type,fn){
+			el.addEventListener?
+				el.addEventListener(type,fn,false):el.attachEvent("on" + type,function(){
+					fn.call(el,window.event);
+				})
+
+				/*
+					el.addEventListener(type,fn,false):el.attachEvent("on" + type,fn);
+				*/
+		}
+	};
+	
+	function handler(e){
+		//alert(e.getAttribute("alt"));
+		alert(this == window);
+		alert(e.srcElement);
+	}
+	E.on(document.getElementById("call-id"),"click",handler);
+</script>
+</html>

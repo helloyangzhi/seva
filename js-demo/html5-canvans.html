@@ -1,0 +1,51 @@
+<!DOCTYPE html">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>html5</title>
+	<style type="text/css">
+	html,body{margin:0px;padding:0px;}
+	#canvas{
+		background: #000;
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+<script type="text/javascript">
+	
+	var can = document.getElementById("canvas");
+	var ctx = can.getContext("2d"),
+		cw = window.innerWidth,
+		ch = window.innerHeight;
+	ctx.globalCompositeOperation = 'destination-out';
+	// decrease the alpha property to create more prominent trails
+	ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+	ctx.fillRect( 0, 0, cw, ch);
+	canvas.width = cw;
+	canvas.height = ch;
+
+	var x = 0 ,y = 0,ex=10,ey=10;
+	function renderLoop(time) {
+          
+		handle = window.requestAnimationFrame(renderLoop);
+		ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+		ctx.fillRect( 0, 0, cw, ch);
+		ctx.beginPath();
+		// move to the last tracked coordinate in the set, then draw a line to the current x and y
+		ctx.moveTo( ex, ey);
+		ctx.lineTo( x,y);
+		ctx.strokeStyle = 'red';
+		ctx.stroke();
+
+		x = ex;
+		y = ey;
+		ex = ex+10;
+		ey = ey + 10;
+
+      }
+      renderLoop(Date.now);
+</script>
+</html>

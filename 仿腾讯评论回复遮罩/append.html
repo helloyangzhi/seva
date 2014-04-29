@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script> 
+	<title>append-iframe</title>
+	<style type="text/css">
+	html,body{height:100%;padding:0px;margin:0px;}
+	</style>
+</head>
+<body>
+	<div><input type="button" value="show" id="show-id"/></div>
+	<div><input type="button" value="test" id="test-id"/></div>
+	<script type="text/javascript">
+	$("#show-id").on("click",function(){
+		$(top.document.body).append('<iframe src="subiframe.html" id="np-pop-iframe" allowtransparency="true" frameborder="0" scrolling="no" style="width: 100%; z-index: 9999; position: fixed; top: 0px; left: 0px; border: none; overflow: hidden; height: 100%;" data-nick="" data-pic="" data-id="" parentid=""></iframe>');
+	});
+	$("#test-id").on("click",function(){
+		alert("test");
+	});
+	</script>
+</body>
+</html>
