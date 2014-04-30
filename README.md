@@ -18,3 +18,5 @@ Keywords:<br/>
 12 js hook and fireEvent<br/>
 13 [] array method, like push shift unshift pop slice join sort ....<br/>
 14 build the wheels.
+15 function .call and apply method.
+16 Array.porotype.sile.call(arguments,1)
