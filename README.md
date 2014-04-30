@@ -15,4 +15,6 @@ Keywords:<br/>
 9 asyn load js/css by document.createElement <br/>
 10 nodeType detect<br/>
 11 document querySelectorAll and querySelector<br/>
-12 [] array method, like push shift unshift pop slice join sort ....<br/>
+12 js hook and fireEvent<br/>
+13 [] array method, like push shift unshift pop slice join sort ....<br/>
+14 build the wheels.
