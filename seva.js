@@ -64,11 +64,32 @@
 
             /**
              * @title       extend
-             * @description 扩展方法
+             * @example     
+                seva.extend({
+                    "run":function(){
+                        console.log("run");
+                    },
+                    "go":function(){
+                        console.log("go");
+                    }
+                });
+             * @description 扩展方法到seva
              * @author      yangzhi<helloyangzhi@foxmail.com>
              * @version     1.0
              */
             extend:function(){
+                var target,src,copy,name,that;
+                target = arguments[0] || {};
+                that = this;
+                for(name in target){
+                    src = that[name];
+                    copy = target[name];
+                    if(src === copy){
+                        continue;
+                    }else{
+                        that[name] = copy;
+                    }
+                }
             },
 
             /**
