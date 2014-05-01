@@ -1,6 +1,9 @@
 /*
- *  seva.js
- *  seva framework
+ *  @title          seva.js 
+ *  @description    seva javscript framework
+ *  @author `       yangzhi<helloyangzhi@foxmail.com>
+ *  @vesion         1.0
+ *  @Copyright      2014-2015 
  */
 ;(function(w,u){
 
