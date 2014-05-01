@@ -6,7 +6,7 @@
 
     //判断浏览器是遵循W3C标准,或者为IE9+浏览器
     var W3C = w.document.dispatchEvent ? true: false,
-        readyList = [];
+        readyList = [],
         class2type = {
             "[object Boolean]" : 'boolean',
             "[object Number]" : 'number',
@@ -246,10 +246,36 @@
         var readyState = DOC.readyState = "loading";
     }
 
+    /*
+     * @title       doScrollCallback
+     * @description 利用ie下doscroll方法的hack，
+                    该方法会在浏览器documentready之后立刻调用。仅仅使用在ie下。
+                    http://javascript.nwbox.com/IEContentLoaded/
+     * @author      yangzhi<helloyangzhi@foxmail.com> 
+     * @version     1.0
+     */
+    function doScrollCallback(){
+        try{
+            document.documentElement.doScroll('left');
+        }catch(e){
+            setTimeout(arguments.callee,1);
+            return;
+        }
+        fireReady();
+    };
+
+    /*
+     * @title       fireReady 
+     * @description 执行ready绑定胡回调方法
+     * @author      yangzhi<helloyangzhi@foxmail.com> 
+     * @version     1.0
+     */
+
     function fireReady (){
         for (var i = 0 , fn; fn = readyList[i++];){
             fn();
         }
+
         readyList = null;
         fireReady = seva.noop; //隋性函数，防止IE9二次调用_checkDeps
     }
@@ -266,6 +292,17 @@
                 }
             }
         });
+        // If IE and not a frame
+        // continually check to see if the document is ready,some thing from jquery source code
+        var toplevel = false;
+
+        try {
+            toplevel = window.frameElement == null;
+        } catch(e) {}
+
+        if (document.documentElement.doScroll && toplevel ) {
+            doScrollCheck();
+        }
     }
 
     //挂载到window下
