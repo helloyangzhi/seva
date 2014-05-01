@@ -213,6 +213,15 @@
                         var script = seva.createScript();
                         script.src= cur + ".js";
                         document.getElementsByTagName("head")[0].appendChild(script);
+
+                        //为模块添加onload或者onreadystatechange事件，成功加载提示安装成功
+                        script[ W3C ? "onload" : "onreadystatechange" ] = function(){
+                            if(W3C || document.readyState === "complete"){
+                                console.log("成功加载模块:" + cur);
+                            }
+                        }
+
+                        //继续加载
                         seva._loadJs();
                     }
                 }
